@@ -1,0 +1,44 @@
+#container{
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column wrap;
+}
+.NavbarItems {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border: 1px solid #fff;
+  width: 95%;
+  height: 80px;
+  border-radius: 13px;
+  position: fixed;
+  z-index: 999;
+  transform: translate(-50%);
+  left: 50%;
+  top: 20px;
+}
+.navbar-logo {
+  color: #222;
+  font-size: 2rem;
+  cursor: point
+  er;
+}
+#createbtn {
+  width: 200px;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+#createbtn i {
+  font-weight: bold;
+  padding:3px 0 0 3px;
+}
+.logout-icon{
+  font-size: 20px;
+  color: #222;
+ 
+}

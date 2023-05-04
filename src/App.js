@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import { Login } from "./components/Login";
+import { Form } from "./components/Form";
+import { useState } from "react";
+import "./App.css";
+// import { Pagination } from "./components/Pagination";
 function App() {
+  // User is currently on this page
+  const [details, setDetails] = useState(
+    JSON.parse(localStorage?.getItem("details"))
+  );
+  // console.log(details);
+  const [currentPage, setCurrentPage] = useState(1);
+  // No of Records to be displayed on each page
+  const [recordsPerPage] = useState(3);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Login currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          }
+        ></Route>
+        <Route
+          path="/home"
+          element={
+            <Home
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              recordsPerPage={recordsPerPage}
+            />
+          }
+        ></Route>
+
+        <Route
+          path="/form"
+          element={
+            <Form currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          }
+        ></Route>
+      </Routes>
+    </>
   );
 }
 
